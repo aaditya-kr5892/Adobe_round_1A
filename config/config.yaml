@@ -1,0 +1,38 @@
+# Model Configuration
+model:
+  max_depth: 6
+  n_estimators: 100
+  learning_rate: 0.1
+  random_state: 42
+
+# Feature Engineering
+features:
+  font_size_quantiles: [0.25, 0.75]
+  position_thresholds:
+    top_quarter: 0.25
+    center_left: 0.2
+    center_right: 0.8
+  text_length_thresholds:
+    short: 50
+    very_short: 20
+
+# Training Configuration
+training:
+  test_size: 0.2
+  validation_split: 0.2
+  stratify: true
+
+# Processing - LOWERED similarity threshold
+processing:
+  max_pdf_pages: 50
+  timeout_seconds: 10
+  text_similarity_threshold: 0.4  # Changed from 0.8 to 0.4
+
+# Paths
+paths:
+  raw_data: "data/raw"
+  processed_data: "data/processed"
+  models: "data/models"
+  docker_input: "/app/input"
+  docker_output: "/app/output"
+  docker_models: "/app/models"
